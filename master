@@ -1,0 +1,26 @@
+## MAINTAINER "Rootbase Solutions" <team@rootbase.in>
+## Salt-Master Config file
+
+interface: 0.0.0.0
+publish_port: 4505
+ret_port: 4506
+user: root
+log_level: critical
+log_level_logfile: info
+
+top_file_merging_strategy: same
+hash_type: sha256
+ping_on_rotate: True
+cli_summary: True
+state_output: changes
+state_verbose: false
+state_events: True
+
+fileserver_backend:
+  - git
+
+gitfs_remotes:
+  - https://github.com/rootbases/salt-config.git:
+    - root: states
+  - https://github.com/rootbases/configs.git:
+    - mountpoint: configs
